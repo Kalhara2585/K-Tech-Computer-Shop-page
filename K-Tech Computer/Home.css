@@ -1,0 +1,382 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Container */
+body {
+    background-color: #0b0f16;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+}
+
+/* Header */
+header {
+    padding: 10px 0;
+    border: 10px solid transparent; /* Creates space for the border image */
+    border-image: url('kt.jpg') 20 round; /* Adjust the path to your image */
+    background-color: transparent; /* Ensure no background color */
+}
+
+/* The container will still center-align your header content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Logo styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: contain;
+}
+
+.logo h1 {
+    color: #00b5f7;
+    font-weight: bold;
+    font-size: 3em;
+    margin: 0;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 15px; /* Space between links */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00b5f7;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav a:hover {
+    color: #00b5f7;
+}
+
+/* Hero Section with Fade-in Animation */
+.hero {
+    background-image: url('R.jpg'); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    animation: slideUp 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+    position: relative;
+}
+
+/* Input Field */
+.search-bar input {
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #00b5f7;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1.1em;
+    transition: all 0.4s ease;
+    background-color: #1b1f27;
+    color: #fff;
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 15px rgba(0, 181, 247, 0.7);
+    border-color: #00b5f7;
+    background-color: #1a2633;
+}
+
+/* Search Button */
+.search-bar button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #00b5f7;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #18d375;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 181, 247, 0.4);
+}
+
+/* Button Hover Animation */
+.search-bar button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Animation on Input Field */
+@keyframes inputFocusAnimation {
+    from {
+        width: 70%;
+    }
+    to {
+        width: 80%;
+    }
+}
+
+.search-bar input:focus {
+    animation: inputFocusAnimation 0.4s ease-out forwards;
+}
+
+/* Placeholder Text Animation */
+.search-bar input::placeholder {
+    color: #bbb;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.search-bar input:focus::placeholder {
+    color: #00b5f7;
+}
+
+/* Additional Styling for Hero Text */
+.hero h2 {
+    font-size: 2.2em;
+    margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00b5f7;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    padding: 1em;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    color: #aaa;
+}
+
+/* General Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section Styles */
+footer h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ff6600;
+}
+
+footer p, footer ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Info */
+.contact-info {
+    width: 25%;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+/* About Section */
+.about {
+    width: 35%;
+}
+
+.about p {
+    margin-bottom: 15px;
+}
+
+/* Categories Section */
+.categories {
+    width: 20%;
+}
+
+.categories ul {
+    padding-left: 15px;
+}
+
+.categories li {
+    font-size: 14px;
+}
+
+/* Quick Links Section */
+.quick-links {
+    width: 20%;
+}
+
+.quick-links ul {
+    padding-left: 15px;
+}
+
+.quick-links li {
+    font-size: 14px;
+}
+
+/* Branches Section */
+.branches {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.branches p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info, .about, .categories, .quick-links, .branches {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
